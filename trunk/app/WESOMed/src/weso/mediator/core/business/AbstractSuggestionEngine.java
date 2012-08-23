@@ -20,7 +20,7 @@ import weso.mediator.core.domain.impl.IndexLucene;
 /**
  * This class defines some attributes and implements some methods of the interface SuggestionEngine
  *
- * @param <T> Its the class that implements weso.mediator.domain.Directory
+ * @param <T> It is the class that implements weso.mediator.domain.Directory
  */
 @SuppressWarnings("deprecation")
 public abstract class AbstractSuggestionEngine<T extends Directory<?>> implements SuggestionEngine<IndexLucene> {
