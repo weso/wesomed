@@ -11,7 +11,7 @@ import com.hp.hpl.jena.query.ResultSet;
 import com.hp.hpl.jena.query.Syntax;
 
 /**
- * This class implements the interface Connector and allow to execute SPARQL queries
+ * This class implements the interface Connector and allows the system to execute SPARQL queries
  *
  */
 public class SPARQLConnector implements Connector {

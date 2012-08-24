@@ -213,25 +213,25 @@ public class SuggestionEngineImpl extends AbstractSuggestionEngine<DirectoryLuce
 		for(Suggestion sug : result) {
 			suggestions.add((SuggestionWithLabel)sug);
 		}
-		//Sort the list according to the probability
+		// Sort the list according to the probability
 		Collections.sort(suggestions);
 		return suggestions;
 	}
 
 	/**
-	 * This method obtains the analyzable fields of a directory.
+	 * Obtains the analyzable fields of a directory.
 	 * @param directory The directory where obtain analyzable fields
 	 * @return The name of analyzable fields
 	 */
 	private String[] getDirectoryFields(DirectoryLucene directory) {
 		List<String> fields = new LinkedList<String>();
-		//Add in a list all analyzable fields of the directory
+		// Add in a list all analyzable fields of the directory
 		for(IndexLucene index : directory.getIndexers()) {
 			if(index.getIndexOption().equals(org.apache.lucene.document.Field.Index.ANALYZED)) {
 				fields.add(index.getFieldName());
 			}
 		}
-		//Verify if the returned index of the directory is analizable
+		// Verify if the returned index of the directory is analyzable
 		if(directory.getReturnedIndex().getIndexOption().equals(org.apache.lucene.document.Field.Index.ANALYZED)) {
 			fields.add(directory.getReturnedIndex().getFieldName());
 		}
@@ -274,8 +274,8 @@ public class SuggestionEngineImpl extends AbstractSuggestionEngine<DirectoryLuce
 	}
 
 	/**
-	 * This method normalize the results obtained, dividing the results in three parts and assigning a probability
-	 * in function of his score an his position.
+	 * Normalizes the results obtained, dividing the results in three parts and assigning a probability
+	 * in function of his score and his position.
 	 * @param scores The scores of Lucene.
 	 * @param results A list with all entities results by the Lucene query
 	 * @return
@@ -291,7 +291,7 @@ public class SuggestionEngineImpl extends AbstractSuggestionEngine<DirectoryLuce
 	}
 
 	/**
-	 * This method obtain the probability of each result and ordered them in a collection.
+	 * Obtains the probability of each result and sorts them in a collection.
 	 * @param scores The scores results by the Lucene query.
 	 * @param results A list with the entities result by the Lucene query.
 	 * @param firstPercentile The first percentile of the scores to calculate the probablities of each entity.

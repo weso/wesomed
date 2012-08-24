@@ -7,7 +7,7 @@ import org.apache.lucene.store.RAMDirectory;
 import weso.mediator.core.domain.Directory;
 
 /**
- * This class its an implementation of class weso.mediator.domain.Directory using RAMDirectory of Lucene
+ * This class is an implementation of class weso.mediator.domain.Directory using RAMDirectory of Lucene
  *
  */
 public class RAMDirectoryLucene extends Directory<IndexLucene> {

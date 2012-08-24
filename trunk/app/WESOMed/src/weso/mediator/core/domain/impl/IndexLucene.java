@@ -5,7 +5,7 @@ import org.apache.lucene.document.Field.TermVector;
 import weso.mediator.core.domain.Index;
 
 /**
- * This class its an implementation of weso.mediator.domain.Index using Indexers of Lucene to index the entities
+ * An implementation of weso.mediator.domain.Index using Indexers of Lucene to index the entities
  *
  */
 public class IndexLucene extends Index {

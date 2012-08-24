@@ -74,7 +74,7 @@ public abstract class AbstractSuggestionEngine<T extends Directory<?>> implement
 	}
 	
 	/**
-	 * This method remove from the parameters all stop words thar are include in the attribute SPANISH_STOP_WORDS
+	 * This method remove from the parameters all stop words that are included in the attribute SPANISH_STOP_WORDS
 	 * @param label The label to filter with stop words
 	 * @return The filtered label
 	 */
