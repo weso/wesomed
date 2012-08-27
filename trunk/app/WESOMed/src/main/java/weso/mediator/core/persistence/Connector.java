@@ -1,4 +1,4 @@
-package main.java.weso.mediator.core.persistence;
+package weso.mediator.core.persistence;
 
 import com.hp.hpl.jena.query.ResultSet;
 

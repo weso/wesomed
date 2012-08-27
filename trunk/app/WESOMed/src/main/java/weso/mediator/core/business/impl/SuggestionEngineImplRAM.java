@@ -1,4 +1,4 @@
-package main.java.weso.mediator.core.business.impl;
+package weso.mediator.core.business.impl;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -27,15 +27,15 @@ import org.apache.lucene.store.LockObtainFailedException;
 import org.apache.lucene.store.RAMDirectory;
 import org.apache.lucene.util.Version;
 
-import main.java.weso.mediator.config.Configuration;
-import main.java.weso.mediator.core.business.AbstractSuggestionEngine;
-import main.java.weso.mediator.core.business.SuggestionException;
-import main.java.weso.mediator.core.domain.Suggestion;
-import main.java.weso.mediator.core.domain.SuggestionWithLabel;
-import main.java.weso.mediator.core.domain.impl.IndexLucene;
-import main.java.weso.mediator.core.domain.impl.RAMDirectoryLucene;
-import main.java.weso.mediator.core.persistence.Connector;
-import main.java.weso.mediator.factory.PersistenceFactory;
+import weso.mediator.config.Configuration;
+import weso.mediator.core.business.AbstractSuggestionEngine;
+import weso.mediator.core.business.SuggestionException;
+import weso.mediator.core.domain.Suggestion;
+import weso.mediator.core.domain.SuggestionWithLabel;
+import weso.mediator.core.domain.impl.IndexLucene;
+import weso.mediator.core.domain.impl.RAMDirectoryLucene;
+import weso.mediator.core.persistence.Connector;
+import weso.mediator.factory.PersistenceFactory;
 
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;

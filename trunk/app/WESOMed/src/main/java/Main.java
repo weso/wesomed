@@ -1,4 +1,4 @@
-package main.java;
+
 
 import java.util.LinkedList;
 import java.util.List;
@@ -6,11 +6,11 @@ import java.util.List;
 import org.apache.lucene.document.Field.Index;
 import org.apache.lucene.document.Field.TermVector;
 
-import main.java.weso.mediator.config.Configuration;
-import main.java.weso.mediator.core.domain.SuggestionWithLabel;
-import main.java.weso.mediator.core.domain.impl.IndexLucene;
-import main.java.weso.mediator.facade.WESOMed;
-import main.java.weso.mediator.factory.FacadeFactory;
+import weso.mediator.config.Configuration;
+import weso.mediator.core.domain.SuggestionWithLabel;
+import weso.mediator.core.domain.impl.IndexLucene;
+import weso.mediator.facade.WESOMed;
+import weso.mediator.factory.FacadeFactory;
 
 public class Main {
 

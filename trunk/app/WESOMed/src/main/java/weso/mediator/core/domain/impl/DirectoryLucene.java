@@ -1,8 +1,8 @@
-package main.java.weso.mediator.core.domain.impl;
+package weso.mediator.core.domain.impl;
 
 import java.util.List;
 
-import main.java.weso.mediator.core.domain.Directory;
+import weso.mediator.core.domain.Directory;
 
 /**
  * This class its an implementation of class weso.mediator.domain.Directory using FSDirectory of Lucene

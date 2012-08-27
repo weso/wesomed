@@ -1,11 +1,11 @@
-package test.java.weso.mediator.util;
+package weso.mediator.util;
 
 import static org.junit.Assert.*;
 
 import java.util.List;
 
-import main.java.weso.mediator.config.Configuration;
-import main.java.weso.mediator.util.Util;
+import weso.mediator.config.Configuration;
+import weso.mediator.util.Util;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,6 +19,7 @@ public class UtilTest {
 		  List <String> words = Util.readWords(fileName);
 		  assertTrue(words.contains("de"));
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail("Exception " + e);
 		}
 	}

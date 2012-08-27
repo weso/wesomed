@@ -1,10 +1,10 @@
-package main.java.weso.mediator.core.business;
+package weso.mediator.core.business;
 
 import java.util.List;
 
-import main.java.weso.mediator.core.domain.Index;
-import main.java.weso.mediator.core.domain.Suggestion;
-import main.java.weso.mediator.core.domain.SuggestionWithLabel;
+import weso.mediator.core.domain.Index;
+import weso.mediator.core.domain.Suggestion;
+import weso.mediator.core.domain.SuggestionWithLabel;
 
 /**
  * This interface defines the main operations of the mediator.

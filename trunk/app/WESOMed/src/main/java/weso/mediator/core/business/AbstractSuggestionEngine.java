@@ -1,4 +1,4 @@
-package main.java.weso.mediator.core.business;
+package weso.mediator.core.business;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,10 +15,10 @@ import org.apache.lucene.analysis.standard.StandardTokenizer;
 import org.apache.lucene.analysis.tokenattributes.TermAttribute;
 import org.apache.lucene.util.Version;
 
-import main.java.weso.mediator.config.Configuration;
-import main.java.weso.mediator.core.domain.Directory;
-import main.java.weso.mediator.core.domain.Suggestion;
-import main.java.weso.mediator.core.domain.impl.IndexLucene;
+import weso.mediator.config.Configuration;
+import weso.mediator.core.domain.Directory;
+import weso.mediator.core.domain.Suggestion;
+import weso.mediator.core.domain.impl.IndexLucene;
 
 /**
  * This class defines some attributes and implements some methods of the interface SuggestionEngine

@@ -1,4 +1,4 @@
-package main.java.weso.mediator.core.business;
+package weso.mediator.core.business;
 
 public class SuggestionException extends Exception {
 

@@ -1,4 +1,4 @@
-package main.java.weso.mediator.core.domain;
+package weso.mediator.core.domain;
 
 import java.util.List;
 

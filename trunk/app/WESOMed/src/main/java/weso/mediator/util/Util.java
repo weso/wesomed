@@ -1,10 +1,10 @@
-package main.java.weso.mediator.util;
+package weso.mediator.util;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import main.java.weso.mediator.config.Configuration;
+import weso.mediator.config.Configuration;
 
 import org.apache.commons.io.FileUtils;
 

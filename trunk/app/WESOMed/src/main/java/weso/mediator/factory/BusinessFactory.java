@@ -1,7 +1,7 @@
-package main.java.weso.mediator.factory;
+package weso.mediator.factory;
 
-import main.java.weso.mediator.core.business.SuggestionEngine;
-import main.java.weso.mediator.core.domain.Index;
+import weso.mediator.core.business.SuggestionEngine;
+import weso.mediator.core.domain.Index;
 
 public class BusinessFactory<T extends Index> {
 	private SuggestionEngine<T> suggestion;

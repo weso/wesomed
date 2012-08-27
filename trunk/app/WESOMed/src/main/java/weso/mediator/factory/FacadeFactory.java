@@ -1,7 +1,7 @@
-package main.java.weso.mediator.factory;
+package weso.mediator.factory;
 
-import main.java.weso.mediator.facade.WESOMed;
-import main.java.weso.mediator.facade.WESOMedImpl;
+import weso.mediator.facade.WESOMed;
+import weso.mediator.facade.WESOMedImpl;
 
 public class FacadeFactory {
 	private static WESOMed<?> suggestion;

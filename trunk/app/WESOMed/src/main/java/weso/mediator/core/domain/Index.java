@@ -1,4 +1,4 @@
-package main.java.weso.mediator.core.domain;
+package weso.mediator.core.domain;
 
 /**
  * This class represents indexes that are used by the mediator to search and index entities in the directories. 

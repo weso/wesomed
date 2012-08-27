@@ -1,10 +1,10 @@
-package main.java.weso.mediator.core.domain.impl;
+package weso.mediator.core.domain.impl;
 
 import java.util.List;
 
 import org.apache.lucene.store.RAMDirectory;
 
-import main.java.weso.mediator.core.domain.Directory;
+import weso.mediator.core.domain.Directory;
 
 /**
  * This class is an implementation of class weso.mediator.domain.Directory using RAMDirectory of Lucene

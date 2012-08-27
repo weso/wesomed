@@ -1,4 +1,4 @@
-package main.java.weso.mediator.config;
+package weso.mediator.config;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -16,7 +16,7 @@ public class Configuration {
 		if(properties == null){
 			properties = new Properties();
 			try {
-				properties.load(Configuration.class.getClassLoader().getResourceAsStream(FILE_NAME));
+				properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream(FILE_NAME));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

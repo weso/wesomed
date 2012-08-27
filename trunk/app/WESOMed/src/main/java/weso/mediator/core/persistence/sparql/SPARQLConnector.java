@@ -1,7 +1,7 @@
-package main.java.weso.mediator.core.persistence.sparql;
+package weso.mediator.core.persistence.sparql;
 
-import main.java.weso.mediator.config.Configuration;
-import main.java.weso.mediator.core.persistence.Connector;
+import weso.mediator.config.Configuration;
+import weso.mediator.core.persistence.Connector;
 
 import com.hp.hpl.jena.query.Query;
 import com.hp.hpl.jena.query.QueryExecution;

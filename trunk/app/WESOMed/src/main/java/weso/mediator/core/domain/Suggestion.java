@@ -1,4 +1,4 @@
-package main.java.weso.mediator.core.domain;
+package weso.mediator.core.domain;
 
 /**
  * This class represents a suggestion of the mediator

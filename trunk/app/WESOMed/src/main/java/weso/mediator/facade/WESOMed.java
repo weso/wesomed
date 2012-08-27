@@ -1,11 +1,11 @@
-package main.java.weso.mediator.facade;
+package weso.mediator.facade;
 
 import java.util.List;
 
-import main.java.weso.mediator.core.business.SuggestionException;
-import main.java.weso.mediator.core.domain.Index;
-import main.java.weso.mediator.core.domain.Suggestion;
-import main.java.weso.mediator.core.domain.SuggestionWithLabel;
+import weso.mediator.core.business.SuggestionException;
+import weso.mediator.core.domain.Index;
+import weso.mediator.core.domain.Suggestion;
+import weso.mediator.core.domain.SuggestionWithLabel;
 
 public interface WESOMed<T extends Index> {
 	

@@ -1,14 +1,14 @@
-package main.java.weso.mediator.facade;
+package weso.mediator.facade;
 
 import java.util.List;
 
-import main.java.weso.mediator.config.Configuration;
-import main.java.weso.mediator.core.business.SuggestionEngine;
-import main.java.weso.mediator.core.business.SuggestionException;
-import main.java.weso.mediator.core.domain.Suggestion;
-import main.java.weso.mediator.core.domain.SuggestionWithLabel;
-import main.java.weso.mediator.core.domain.impl.IndexLucene;
-import main.java.weso.mediator.factory.BusinessFactory;
+import weso.mediator.config.Configuration;
+import weso.mediator.core.business.SuggestionEngine;
+import weso.mediator.core.business.SuggestionException;
+import weso.mediator.core.domain.Suggestion;
+import weso.mediator.core.domain.SuggestionWithLabel;
+import weso.mediator.core.domain.impl.IndexLucene;
+import weso.mediator.factory.BusinessFactory;
 
 public class WESOMedImpl implements WESOMed<IndexLucene> {
 	

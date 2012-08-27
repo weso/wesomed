@@ -1,8 +1,8 @@
-package main.java.weso.mediator.core.domain.impl;
+package weso.mediator.core.domain.impl;
 
 import org.apache.lucene.document.Field.TermVector;
 
-import main.java.weso.mediator.core.domain.Index;
+import weso.mediator.core.domain.Index;
 
 /**
  * An implementation of weso.mediator.domain.Index using Indexers of Lucene to index the entities

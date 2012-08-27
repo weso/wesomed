@@ -1,6 +1,6 @@
-package main.java.weso.mediator.factory;
+package weso.mediator.factory;
 
-import main.java.weso.mediator.core.persistence.Connector;
+import weso.mediator.core.persistence.Connector;
 
 public class PersistenceFactory {
 	private Connector connector;
