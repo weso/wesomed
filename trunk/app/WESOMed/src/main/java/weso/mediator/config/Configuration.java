@@ -1,6 +1,7 @@
 package weso.mediator.config;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
@@ -16,11 +17,21 @@ public class Configuration {
 		if(properties == null){
 			properties = new Properties();
 			try {
-				properties.load(Thread.currentThread().getContextClassLoader().getResourceAsStream(FILE_NAME));
+				properties.load(getLocalStream(FILE_NAME));
 			} catch (IOException e) {
+				// TODO: should print to logger?
 				e.printStackTrace();
 			}
 		}
 		return properties.getProperty(propertyName);
+	}
+	
+	public static InputStream getFileFromProperty(String propertyName){
+		String fileName = getProperty(propertyName);
+	    return getLocalStream(fileName);	
+	} 
+	
+	public static InputStream getLocalStream(String resourceName) {
+		return Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName);
 	}
 }
