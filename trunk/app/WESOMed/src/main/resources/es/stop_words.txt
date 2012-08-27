@@ -27,7 +27,7 @@ estos
 fue
 fueron
 ha
-hab√≠a
+habÌa
 han
 hasta
 hay
@@ -40,8 +40,8 @@ los
 me
 mucho
 muy
-m√°s
-m√≠
+m·s
+mÌ
 nada
 ni
 no
@@ -57,7 +57,7 @@ porque
 que
 quien
 quienes
-qu√©
+quÈ
 se
 ser
 sin
@@ -65,7 +65,7 @@ sobre
 son
 su
 sus
-s√≠
+sÌ
 tanto
 todo
 todos
@@ -76,4 +76,4 @@ unos
 y
 ya
 yo
-√©l
+Èl
