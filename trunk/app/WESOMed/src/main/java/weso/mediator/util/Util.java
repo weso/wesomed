@@ -2,11 +2,10 @@ package weso.mediator.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
-
-import weso.mediator.config.Configuration;
-
-import org.apache.commons.io.FileUtils;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 
 public class Util {
 
@@ -34,8 +33,15 @@ public class Util {
 	 * @return a list of the words
 	 */
 	public static List<String> readWords(String fileName) throws IOException {
-		  List<String> words = FileUtils.readLines(new File(fileName), "utf-8");
-		  return words;
+//		  List<String> words = FileUtils.readLines(new File(fileName), "utf-8");
+//		  return words;
+		ResourceBundle words = 
+				new PropertyResourceBundle(Thread.currentThread().getContextClassLoader().getResourceAsStream(fileName));
+		return new LinkedList<String>(words.keySet());
 	}
+	
+
+
+	
 
 }
