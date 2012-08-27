@@ -4,8 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import weso.mediator.core.domain.Index;
-import weso.mediator.core.domain.impl.IndexLucene;
+import main.java.weso.mediator.core.domain.Index;
+import main.java.weso.mediator.core.domain.impl.IndexLucene;
+import main.java.weso.mediator.core.business.*;
 
 public class AbstractSuggestionEngineTest {
 
@@ -16,11 +17,5 @@ public class AbstractSuggestionEngineTest {
 		String expected = "Juan Cierva" ;
 		assertEquals(filtered,expected);
 	}
-	@Test
-	public void testSpanishStopWordsFailing() {
-		String label = "Juan Carlos";
-		String filtered = "Juan Carlos" ; // should be: filterSpanishStopWords(label);
-		String expected = "Juan Carlos" ;
-		assertEquals(filtered,expected);
-	}
+	
 }
