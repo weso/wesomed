@@ -49,4 +49,20 @@ public class UtilTest {
 		}
 	}
 	
+	@Test
+	public void testSpanishStopWords() {
+		// TODO: This test is not implemented yet
+		try {
+			String label = "Juan de la Cierva";
+			List <String> stop_words = Util.readWords(Configuration.getProperty("stop_words_file"));
+			String filtered = Util.filterStopWords(label,stop_words);
+			String expected = "juan cierva " ;
+			assertEquals(filtered,expected);
+		}
+		catch (Exception e) {
+			 fail("Exception " + e);
+		}
+	}
+	
+
 }

@@ -26,7 +26,7 @@ public class ConfigurationTest {
 	public void testQueryFileContents() {
 		try {
 			String contents = Configuration.getContentsFromProperty("query_file");
-			assertTrue(contents.contains("select"));
+			assertTrue(contents.contains("SELECT"));
 		} catch (Exception e) {
 			fail("Exception: e");
 		}

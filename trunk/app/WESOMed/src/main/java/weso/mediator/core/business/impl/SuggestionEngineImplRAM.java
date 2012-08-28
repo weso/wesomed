@@ -51,13 +51,13 @@ private static Logger logger = Logger.getLogger(SuggestionEngineImplRAM.class);
 	private PersistenceFactory factory;
 	private Connector connector;
 	
-	public SuggestionEngineImplRAM(){
+	public SuggestionEngineImplRAM() throws IOException {
 		super();
 		factory = new PersistenceFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
 	}
 	
-	public SuggestionEngineImplRAM(List<RAMDirectoryLucene> directories) {
+	public SuggestionEngineImplRAM(List<RAMDirectoryLucene> directories) throws IOException {
 		super(directories);
 		factory = new PersistenceFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
@@ -74,7 +74,7 @@ private static Logger logger = Logger.getLogger(SuggestionEngineImplRAM.class);
 		logger.info("Start searching suggestions for the label \"" + label + "\" in the directory " + directoryName);
 		IndexSearcher is = null;
 		try {
-			label = filterSpanishStopWords(label);
+			label = filterStopWords(label);
 			//Obtain the Directory of Lucene to search for
 			RAMDirectoryLucene directory = getDirectory(directoryName);
 			is = new IndexSearcher(IndexReader.open(directory.getDirectory()));
@@ -126,7 +126,7 @@ private static Logger logger = Logger.getLogger(SuggestionEngineImplRAM.class);
 		logger.info("Start searching suggestions for the label \"" + label + "\" in the directory " + directoryName);
 		IndexSearcher is = null;
 		try {
-			label = filterSpanishStopWords(label);
+			label = filterStopWords(label);
 			//Obtain the Directory of Lucene to search for
 			RAMDirectoryLucene directory = getDirectory(directoryName);
 			is = new IndexSearcher(IndexReader.open(directory.getDirectory()));

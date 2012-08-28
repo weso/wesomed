@@ -14,6 +14,7 @@ import weso.mediator.core.domain.SuggestionWithLabel;
 import weso.mediator.core.domain.impl.IndexLucene;
 import weso.mediator.facade.WESOMed;
 import weso.mediator.factory.FacadeFactory;
+import weso.mediator.util.Util;
 
 public class Main {
 
@@ -24,7 +25,7 @@ public class Main {
 	 */
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
-		try {			
+		try {
 			WESOMed<IndexLucene> facade = (WESOMed<IndexLucene>) FacadeFactory.getFacade();
 			//Create the indexers that are necessary 
 			List<IndexLucene> indexers = new LinkedList<IndexLucene>();
@@ -32,14 +33,16 @@ public class Main {
 			indexers.add(new IndexLucene("content", "label", Index.ANALYZED, TermVector.YES, true));
 			//This is the index that contains the Id of the entities. It's important to put it in the position 0
 			indexers.add(0, new IndexLucene("filename", "resource", Index.NOT_ANALYZED, TermVector.NO, true));
-			//Index the entities in the directory specified in the config.properties file
-			
+
 			String query = Configuration.getContentsFromProperty("query_file");
 			
 			facade.indexEntities(Configuration.getProperty("index_dir"), query, indexers);
 			//Request the suggestions
-			List<SuggestionWithLabel> suggestions = facade.getSuggestionsWithLabel("Jaume Barrueto", 
-					Configuration.getProperty("index_dir"));
+			List<SuggestionWithLabel> suggestions = 
+					facade.getSuggestionsWithLabel
+							("Jaume Barrueto", 
+							 Configuration.getProperty("index_dir")
+							);
 			for(SuggestionWithLabel sug : suggestions) {
 				System.out.println(sug.getResourceId() + " " + sug.getProbability() + " " + sug.getLabel());
 			}

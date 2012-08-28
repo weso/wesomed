@@ -10,12 +10,4 @@ import weso.mediator.core.business.*;
 
 public class AbstractSuggestionEngineTest {
 
-	@Test
-	public void testSpanishStopWords() {
-		String label = "Juan de la Cierva";
-		String filtered = "Juan Cierva" ; // should be: filterSpanishStopWords(label);
-		String expected = "Juan Cierva" ;
-		assertEquals(filtered,expected);
-	}
-	
 }

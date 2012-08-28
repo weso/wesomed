@@ -4,10 +4,11 @@ import weso.mediator.facade.WESOMed;
 import weso.mediator.facade.WESOMedImpl;
 
 public class FacadeFactory {
-	private static WESOMed<?> suggestion;
+	private static WESOMed<?> mediator;
+
 	public static WESOMed<?> getFacade() {
-		if(suggestion == null)
-			suggestion = new WESOMedImpl();
-		return suggestion;
+		if(mediator == null)
+			mediator = new WESOMedImpl();
+		return mediator;
 	}
 }

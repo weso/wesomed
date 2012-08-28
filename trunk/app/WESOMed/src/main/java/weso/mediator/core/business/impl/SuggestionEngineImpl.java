@@ -52,13 +52,13 @@ public class SuggestionEngineImpl extends AbstractSuggestionEngine<DirectoryLuce
 	private PersistenceFactory factory;
 	private Connector connector;
 	
-	public SuggestionEngineImpl(){
+	public SuggestionEngineImpl() throws IOException {
 		super();
 		factory = new PersistenceFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
 	}
 	
-	public SuggestionEngineImpl(List<DirectoryLucene> directories){
+	public SuggestionEngineImpl(List<DirectoryLucene> directories) throws IOException {
 		super(directories);
 		factory = new PersistenceFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
@@ -69,7 +69,7 @@ public class SuggestionEngineImpl extends AbstractSuggestionEngine<DirectoryLuce
 		logger.info("Start searching suggestions for the label \"" + label + "\" in the directory " + directoryName);
 		IndexSearcher is = null;
 		try {
-			label = filterSpanishStopWords(label);
+			label = filterStopWords(label);
 			//Obtain the Directory of Lucene to search for
 			DirectoryLucene directory = getDirectory(directoryName);
 			is = new IndexSearcher(IndexReader.open(new SimpleFSDirectory(
@@ -122,7 +122,7 @@ public class SuggestionEngineImpl extends AbstractSuggestionEngine<DirectoryLuce
 		logger.info("Start searching suggestions for the label \"" + label + "\" in the directory " + directoryName);
 		IndexSearcher is = null;
 		try {
-			label = filterSpanishStopWords(label);
+			label = filterStopWords(label);
 			//Obtain the Directory of Lucene to search for
 			DirectoryLucene directory = getDirectory(directoryName);
 			is = new IndexSearcher(IndexReader.open(new SimpleFSDirectory(

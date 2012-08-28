@@ -19,6 +19,7 @@ import weso.mediator.config.Configuration;
 import weso.mediator.core.domain.Directory;
 import weso.mediator.core.domain.Suggestion;
 import weso.mediator.core.domain.impl.IndexLucene;
+import weso.mediator.util.Util;
 
 /**
  * This class defines some attributes and implements some methods of the interface SuggestionEngine
@@ -32,24 +33,14 @@ public abstract class AbstractSuggestionEngine<T extends Directory<?>> implement
 	 * Its a list of directories where entities are indexed
 	 */
 	protected List<T> indexDirectories;
-	
-	/**
-	 * Its a collection of spanish stop words that are eliminated from the label that need a suggestion of entities
-	 */
-	private String[] SPANISH_STOP_WORDS = {
-			"de","la","que","el","en","y","a","los","del","se","las","por","un","para",
-			"con","no","una","su","al","es","lo","como","más","pero","sus","le","ya","o",
-			"fue", "ha","sí","porque","esta","son","entre","cuando","muy","sin",
-			"sobre","ser","me","hasta","hay","donde","han","quien", "desde","todo","durante","todos","uno","les","ni","contra",
-			"otros","fueron","ese","eso","había","ante","ellos","e","esto","mí","antes","algunos",
-			"qué","unos","yo","otro","otras","otra","él","tanto","esa","estos","mucho","quienes",
-			"nada"};
-	
-	public AbstractSuggestionEngine() {
-		this.indexDirectories = new LinkedList<T>();
+	private List<String> stopWords;
+
+	public AbstractSuggestionEngine() throws IOException {
+		this(new LinkedList<T>());
 	}
 	
-	public AbstractSuggestionEngine(List<T> directories) {
+	public AbstractSuggestionEngine(List<T> directories) throws IOException {
+		stopWords = Util.readWords(Configuration.getProperty("stop_words_file"));
 		indexDirectories = directories;
 	}
 
@@ -77,26 +68,12 @@ public abstract class AbstractSuggestionEngine<T extends Directory<?>> implement
 	}
 	
 	/**
-	 * This method remove from the parameters all stop words thar are include in the attribute SPANISH_STOP_WORDS
+	 * Removes all stop words that are included 
 	 * @param label The label to filter with stop words
-	 * @return The filtered label
+	 * @return the filtered label
 	 */
-	protected String filterSpanishStopWords(String label) {
-		Set<Object> stopWords = StopFilter.makeStopSet(SPANISH_STOP_WORDS, true);
-		TokenStream stream = new StandardTokenizer(Version.LUCENE_36, new StringReader(label));
-		stream = new LowerCaseFilter(stream);
-		stream = new StopFilter(Version.LUCENE_36, stream, stopWords);
-		TermAttribute atttribute = stream.getAttribute(TermAttribute.class);
-		String result = "";
-		try {
-			while(stream.incrementToken()) {
-				result += atttribute.term() + " ";
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		result.substring(0, (result.length() > 0)?result.length() - 1:0);
-		return result;
+	protected String filterStopWords(String label) throws IOException {
+		return Util.filterStopWords(label, stopWords);
 	}
 
 }
