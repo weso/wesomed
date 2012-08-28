@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.commons.io.IOUtils;
+
 /**
  * This class extract properties of the configuration file
  *
@@ -14,7 +16,7 @@ public class Configuration {
 	private static final String FILE_NAME = "config.properties";
 	
 	public static String getProperty(String propertyName){
-		if(properties == null){
+		if(properties == null) {
 			properties = new Properties();
 			try {
 				properties.load(getLocalStream(FILE_NAME));
@@ -27,8 +29,14 @@ public class Configuration {
 	}
 	
 	public static InputStream getFileFromProperty(String propertyName){
-		String fileName = getProperty(propertyName);
-	    return getLocalStream(fileName);	
+	    return getLocalStream(getProperty(propertyName));	
+	} 
+	
+	public static String getContentsFromProperty(String propertyName)
+	 	throws IOException {
+	    InputStream input = getLocalStream(getProperty(propertyName));
+	    String contents = IOUtils.toString(input,"UTF-8");
+	    return contents;
 	} 
 	
 	public static InputStream getLocalStream(String resourceName) {

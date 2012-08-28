@@ -16,5 +16,22 @@ public class ConfigurationTest {
 		assertEquals("es/stop_words.txt",fileName);
 	}
 
+	@Test
+	public void testQueryFileName() {
+		String fileName = Configuration.getProperty("query_file");
+		assertEquals("sparql/bcn.sparql",fileName);
+	}
+
+	@Test
+	public void testQueryFileContents() {
+		try {
+			String contents = Configuration.getContentsFromProperty("query_file");
+			assertTrue(contents.contains("select"));
+		} catch (Exception e) {
+			fail("Exception: e");
+		}
+		
+	}
+
 }
 

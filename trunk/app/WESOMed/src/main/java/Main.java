@@ -1,10 +1,13 @@
 
 
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.lucene.document.Field.Index;
 import org.apache.lucene.document.Field.TermVector;
+ 
 
 import weso.mediator.config.Configuration;
 import weso.mediator.core.domain.SuggestionWithLabel;
@@ -30,8 +33,10 @@ public class Main {
 			//This is the index that contains the Id of the entities. It's important to put it in the position 0
 			indexers.add(0, new IndexLucene("filename", "resource", Index.NOT_ANALYZED, TermVector.NO, true));
 			//Index the entities in the directory specified in the config.properties file
-			facade.indexEntities(Configuration.getProperty("index_dir"), 
-					Configuration.getProperty("query_per"), indexers);
+			
+			String query = Configuration.getContentsFromProperty("query_file");
+			
+			facade.indexEntities(Configuration.getProperty("index_dir"), query, indexers);
 			//Request the suggestions
 			List<SuggestionWithLabel> suggestions = facade.getSuggestionsWithLabel("Jaume Barrueto", 
 					Configuration.getProperty("index_dir"));
@@ -40,8 +45,8 @@ public class Main {
 			}
 		
 		} catch (Exception e) {
-			System.out.println("Error");
-			System.out.println(e.getMessage());
+			System.out.println("Exception");
+			e.printStackTrace();
 		}
 	}
 
