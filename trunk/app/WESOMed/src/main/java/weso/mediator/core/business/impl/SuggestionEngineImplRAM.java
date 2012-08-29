@@ -32,8 +32,8 @@ import weso.mediator.core.business.AbstractSuggestionEngine;
 import weso.mediator.core.business.SuggestionException;
 import weso.mediator.core.domain.Suggestion;
 import weso.mediator.core.domain.SuggestionWithLabel;
-import weso.mediator.core.domain.impl.IndexLucene;
-import weso.mediator.core.domain.impl.RAMDirectoryLucene;
+import weso.mediator.core.domain.lucene.IndexLucene;
+import weso.mediator.core.domain.lucene.RAMDirectoryLucene;
 import weso.mediator.core.persistence.Connector;
 import weso.mediator.factory.PersistenceFactory;
 
