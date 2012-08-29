@@ -16,7 +16,7 @@ import weso.mediator.core.domain.SuggestionWithLabel;
 import weso.mediator.core.domain.lucene.IndexLucene;
 import weso.mediator.facade.WESOMed;
 import weso.mediator.facade.WESOMedLucene;
-import weso.mediator.factory.FacadeFactory;
+import weso.mediator.factory.WESOMedFactory;
 import weso.mediator.util.Util;
 
 public class MainTest  {
@@ -33,7 +33,7 @@ public class MainTest  {
 		String expectedSuggestion = "Víctor Barrueto "; 
 
 		try {
-			WESOMedLucene facade = (WESOMedLucene) FacadeFactory.getFacade();
+			WESOMedLucene facade = (WESOMedLucene) WESOMedFactory.getWESOMed();
 			
 			// Create the indexers that are necessary 
 			List<IndexLucene> indexers = new LinkedList<IndexLucene>();

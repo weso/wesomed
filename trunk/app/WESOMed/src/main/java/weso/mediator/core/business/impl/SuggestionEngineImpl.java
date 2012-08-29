@@ -36,7 +36,7 @@ import weso.mediator.core.domain.SuggestionWithLabel;
 import weso.mediator.core.domain.lucene.DirectoryLucene;
 import weso.mediator.core.domain.lucene.IndexLucene;
 import weso.mediator.core.persistence.Connector;
-import weso.mediator.factory.PersistenceFactory;
+import weso.mediator.factory.ConnectorFactory;
 import weso.mediator.util.Util;
 
 import com.hp.hpl.jena.query.QuerySolution;
@@ -49,18 +49,18 @@ import com.hp.hpl.jena.query.ResultSet;
 public class SuggestionEngineImpl extends AbstractSuggestionEngine<DirectoryLucene>{
 	private static Logger logger = Logger.getLogger(SuggestionEngineImpl.class);
 	
-	private PersistenceFactory factory;
+	private ConnectorFactory factory;
 	private Connector connector;
 	
 	public SuggestionEngineImpl() throws IOException {
 		super();
-		factory = new PersistenceFactory();
+		factory = new ConnectorFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
 	}
 	
 	public SuggestionEngineImpl(List<DirectoryLucene> directories) throws IOException {
 		super(directories);
-		factory = new PersistenceFactory();
+		factory = new ConnectorFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
 	}
 	

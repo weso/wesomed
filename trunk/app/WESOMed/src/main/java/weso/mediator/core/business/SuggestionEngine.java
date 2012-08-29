@@ -20,7 +20,9 @@ public interface SuggestionEngine<T extends Index> {
 	 * @return A list of all the suggestions found by the mediator
 	 * @throws SuggestionException
 	 */
-	public List<Suggestion> getSuggestions(String label, String directoryName) throws SuggestionException;
+	public List<Suggestion> 
+		getSuggestions(String label, 
+					   String directoryName) throws SuggestionException;
 	
 	/**
 	 * This method returns the suggestions from the label that receives as parameter. In this method, the
@@ -30,8 +32,9 @@ public interface SuggestionEngine<T extends Index> {
 	 * @return A list of all the suggestions found by the mediator
 	 * @throws SuggestionException
 	 */
-	public List<SuggestionWithLabel> getSuggestionsWithLabel(String label, 
-			String directoryName) throws SuggestionException;
+	public List<SuggestionWithLabel> 
+		getSuggestionsWithLabel(String label, 
+								String directoryName) throws SuggestionException;
 
 	/**
 	 * This method has to index entities in a directory.
@@ -40,7 +43,9 @@ public interface SuggestionEngine<T extends Index> {
 	 * @param indexers A list of all index that are necessary to search the entities.
 	 * @throws SuggestionException
 	 */
-	public void indexEntities(String directoryName, String query, List<T> indexers) throws SuggestionException;
+	public void indexEntities(String directoryName, 
+							  String query, 
+							  List<T> indexers) throws SuggestionException;
 
 	/**
 	 * This method checks if the indexes are created

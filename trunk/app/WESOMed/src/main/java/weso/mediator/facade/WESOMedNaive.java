@@ -9,39 +9,41 @@ import weso.mediator.core.domain.Suggestion;
 import weso.mediator.core.domain.SuggestionWithLabel;
 import weso.mediator.core.domain.lucene.IndexLucene;
 import weso.mediator.core.domain.naive.IndexNaive;
-import weso.mediator.factory.BusinessFactory;
+import weso.mediator.factory.SuggestionEngineFactory;
 
 public class WESOMedNaive implements WESOMed<IndexNaive> {
 	
-	private BusinessFactory<IndexNaive> factory;
+	private SuggestionEngineFactory<IndexNaive> factory;
 	
 	public WESOMedNaive(){
-		factory = new BusinessFactory<IndexNaive>(Configuration.getProperty("business.class.name"));
+		factory = new SuggestionEngineFactory<IndexNaive> (Configuration.getProperty("business.class.name"));
 	}
 	
 	@Override
-	public List<Suggestion> getSuggestions(String label, String directoryName) throws SuggestionException{
-		SuggestionEngine<IndexNaive> suggestion = (SuggestionEngine<IndexNaive>)factory.getSuggestion();
-		return suggestion.getSuggestions(label, directoryName);
+	public List<Suggestion> 
+		getSuggestions(String label, 
+					   String directoryName) 
+							   throws SuggestionException {
+		SuggestionEngine<IndexNaive> suggestionEngine = (SuggestionEngine<IndexNaive>) factory.getSuggestionEngine();
+		return suggestionEngine.getSuggestions(label, directoryName);
 	}
 	
 	@Override
-	public List<SuggestionWithLabel> getSuggestionsWithLabel(String label,
-			String directoryName) throws SuggestionException {
-		SuggestionEngine<IndexNaive> suggestion = (SuggestionEngine<IndexNaive>) factory.getSuggestion();
+	public List<SuggestionWithLabel> getSuggestionsWithLabel(String label, String directoryName) throws SuggestionException {
+		SuggestionEngine<IndexNaive> suggestion = (SuggestionEngine<IndexNaive>) factory.getSuggestionEngine();
 		return suggestion.getSuggestionsWithLabel(label, directoryName);
 	}
 
 	@Override
 	public void indexEntities(String nameDirectory, String query, List<IndexNaive> indexers) throws SuggestionException {
-		SuggestionEngine<IndexNaive> suggestion = factory.getSuggestion();
+		SuggestionEngine<IndexNaive> suggestion = factory.getSuggestionEngine();
 		suggestion.indexEntities(nameDirectory, query, indexers);
 		
 	}
 
 	@Override
 	public boolean areIndexesCreated() {
-		SuggestionEngine<IndexNaive> suggestion = factory.getSuggestion();
+		SuggestionEngine<IndexNaive> suggestion = factory.getSuggestionEngine();
 		return suggestion.areIndexesCreated();
 	}
 }

@@ -35,7 +35,7 @@ import weso.mediator.core.domain.SuggestionWithLabel;
 import weso.mediator.core.domain.lucene.IndexLucene;
 import weso.mediator.core.domain.lucene.RAMDirectoryLucene;
 import weso.mediator.core.persistence.Connector;
-import weso.mediator.factory.PersistenceFactory;
+import weso.mediator.factory.ConnectorFactory;
 
 import com.hp.hpl.jena.query.QuerySolution;
 import com.hp.hpl.jena.query.ResultSet;
@@ -48,18 +48,18 @@ public class SuggestionEngineLuceneRAM extends AbstractSuggestionEngine<RAMDirec
 	
 private static Logger logger = Logger.getLogger(SuggestionEngineLuceneRAM.class);
 	
-	private PersistenceFactory factory;
+	private ConnectorFactory factory;
 	private Connector connector;
 	
 	public SuggestionEngineLuceneRAM() throws IOException {
 		super();
-		factory = new PersistenceFactory();
+		factory = new ConnectorFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
 	}
 	
 	public SuggestionEngineLuceneRAM(List<RAMDirectoryLucene> directories) throws IOException {
 		super(directories);
-		factory = new PersistenceFactory();
+		factory = new ConnectorFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
 	}
 
