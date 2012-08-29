@@ -18,7 +18,7 @@ import org.apache.lucene.util.Version;
 import weso.mediator.config.Configuration;
 import weso.mediator.core.domain.Directory;
 import weso.mediator.core.domain.Suggestion;
-import weso.mediator.core.domain.impl.IndexLucene;
+import weso.mediator.core.domain.lucene.IndexLucene;
 import weso.mediator.util.Util;
 
 /**
