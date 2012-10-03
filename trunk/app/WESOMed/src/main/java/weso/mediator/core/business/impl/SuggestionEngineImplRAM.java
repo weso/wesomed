@@ -75,6 +75,10 @@ private static Logger logger = Logger.getLogger(SuggestionEngineImplRAM.class);
 		IndexSearcher is = null;
 		try {
 			label = filterStopWords(label);
+			//If label is empty return a empty list
+			if(label.replace(" ", "").equals("")) {
+				return new LinkedList<Suggestion>();
+			}
 			//Obtain the Directory of Lucene to search for
 			RAMDirectoryLucene directory = getDirectory(directoryName);
 			is = new IndexSearcher(IndexReader.open(directory.getDirectory()));
@@ -126,7 +130,11 @@ private static Logger logger = Logger.getLogger(SuggestionEngineImplRAM.class);
 		logger.info("Start searching suggestions for the label \"" + label + "\" in the directory " + directoryName);
 		IndexSearcher is = null;
 		try {
+			//If label is empty return a empty list
 			label = filterStopWords(label);
+			if(label.replace(" ", "").equals("")) {
+				return new LinkedList<SuggestionWithLabel>();
+			}
 			//Obtain the Directory of Lucene to search for
 			RAMDirectoryLucene directory = getDirectory(directoryName);
 			is = new IndexSearcher(IndexReader.open(directory.getDirectory()));
