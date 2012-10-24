@@ -1,4 +1,4 @@
-package weso.mediator.core.business.impl;
+package weso.mediator.core.business.lucene;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,19 +46,19 @@ import com.hp.hpl.jena.query.ResultSet;
  * This class is an implementation of SuggestionEngine based by Lucene using directories in the file system
  * 
  */
-public class SuggestionEngineImpl extends AbstractSuggestionEngine<DirectoryLucene>{
-	private static Logger logger = Logger.getLogger(SuggestionEngineImpl.class);
+public class SuggestionEngineLucene extends AbstractSuggestionEngine<DirectoryLucene>{
+	private static Logger logger = Logger.getLogger(SuggestionEngineLucene.class);
 	
 	private ConnectorFactory factory;
 	private Connector connector;
 	
-	public SuggestionEngineImpl() throws IOException {
+	public SuggestionEngineLucene() throws IOException {
 		super();
 		factory = new ConnectorFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
 	}
 	
-	public SuggestionEngineImpl(List<DirectoryLucene> directories) throws IOException {
+	public SuggestionEngineLucene(List<DirectoryLucene> directories) throws IOException {
 		super(directories);
 		factory = new ConnectorFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));

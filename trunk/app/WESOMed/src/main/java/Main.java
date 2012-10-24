@@ -1,20 +1,16 @@
 
 
-import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.lucene.document.Field.Index;
 import org.apache.lucene.document.Field.TermVector;
- 
 
 import weso.mediator.config.Configuration;
 import weso.mediator.core.domain.SuggestionWithLabel;
-import weso.mediator.core.domain.impl.IndexLucene;
+import weso.mediator.core.domain.lucene.IndexLucene;
 import weso.mediator.facade.WESOMed;
 import weso.mediator.factory.FacadeFactory;
-import weso.mediator.util.Util;
 
 public class Main {
 
@@ -26,6 +22,9 @@ public class Main {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		try {
+			
+			System.setProperty("http.proxyHost", "proxy.uniovi.es");
+			System.setProperty("http.proxyPort", "8888");
 			WESOMed<IndexLucene> facade = (WESOMed<IndexLucene>) FacadeFactory.getFacade();
 			//Create the indexers that are necessary 
 			List<IndexLucene> indexers = new LinkedList<IndexLucene>();

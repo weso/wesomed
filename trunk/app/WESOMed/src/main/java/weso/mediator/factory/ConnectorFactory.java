@@ -8,7 +8,7 @@ public class ConnectorFactory {
 	public Connector getConnector(String className){
 		if(connector == null){
 			try {
-				Class<?> clazz = Class.forName(className);		
+				Class<?> clazz = Class.forName(className);
 				connector = (Connector) clazz.newInstance();
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();

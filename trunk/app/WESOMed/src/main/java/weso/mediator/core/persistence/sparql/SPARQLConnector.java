@@ -21,7 +21,8 @@ public class SPARQLConnector implements Connector {
 	 */
 	public ResultSet executeQuery(String queryStr) {
 		Query query = QueryFactory.create(queryStr, Syntax.syntaxARQ);
-		QueryExecution qexec = QueryExecutionFactory.sparqlService(Configuration.getProperty("sparql_endpoint"),
+		QueryExecution qexec = QueryExecutionFactory.sparqlService(
+				Configuration.getProperty("datasource_uri"),
 				query);
 		ResultSet rs = qexec.execSelect();
 		return rs;

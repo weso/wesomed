@@ -6,6 +6,10 @@ import java.util.Properties;
 
 import org.apache.commons.io.IOUtils;
 
+import weso.mediator.core.persistence.jena.JenaModelConnector;
+
+import com.hp.hpl.jena.rdf.model.Model;
+
 /**
  * This class extract properties of the configuration file
  *
@@ -42,4 +46,6 @@ public class Configuration {
 	public static InputStream getLocalStream(String resourceName) {
 		return Thread.currentThread().getContextClassLoader().getResourceAsStream(resourceName);
 	}
+	
+	
 }

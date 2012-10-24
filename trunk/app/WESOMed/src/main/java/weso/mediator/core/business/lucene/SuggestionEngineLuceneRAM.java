@@ -1,4 +1,4 @@
-package weso.mediator.core.business.impl;
+package weso.mediator.core.business.lucene;
 
 import java.io.IOException;
 import java.util.Collections;
@@ -44,20 +44,20 @@ import com.hp.hpl.jena.query.ResultSet;
  * This class is an implementation of SuggestionEngine based by Lucene using directories in RAM memory
  *
  */
-public class SuggestionEngineImplRAM extends AbstractSuggestionEngine<RAMDirectoryLucene>{
+public class SuggestionEngineLuceneRAM extends AbstractSuggestionEngine<RAMDirectoryLucene>{
 	
-private static Logger logger = Logger.getLogger(SuggestionEngineImplRAM.class);
+private static Logger logger = Logger.getLogger(SuggestionEngineLuceneRAM.class);
 	
 	private ConnectorFactory factory;
 	private Connector connector;
 	
-	public SuggestionEngineImplRAM() throws IOException {
+	public SuggestionEngineLuceneRAM() throws IOException {
 		super();
 		factory = new ConnectorFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
 	}
 	
-	public SuggestionEngineImplRAM(List<RAMDirectoryLucene> directories) throws IOException {
+	public SuggestionEngineLuceneRAM(List<RAMDirectoryLucene> directories) throws IOException {
 		super(directories);
 		factory = new ConnectorFactory();
 		connector = factory.getConnector(Configuration.getProperty("connector.class.name"));
@@ -75,10 +75,6 @@ private static Logger logger = Logger.getLogger(SuggestionEngineImplRAM.class);
 		IndexSearcher is = null;
 		try {
 			label = filterStopWords(label);
-			//If label is empty return a empty list
-			if(label.replace(" ", "").equals("")) {
-				return new LinkedList<Suggestion>();
-			}
 			//Obtain the Directory of Lucene to search for
 			RAMDirectoryLucene directory = getDirectory(directoryName);
 			is = new IndexSearcher(IndexReader.open(directory.getDirectory()));
@@ -130,11 +126,7 @@ private static Logger logger = Logger.getLogger(SuggestionEngineImplRAM.class);
 		logger.info("Start searching suggestions for the label \"" + label + "\" in the directory " + directoryName);
 		IndexSearcher is = null;
 		try {
-			//If label is empty return a empty list
 			label = filterStopWords(label);
-			if(label.replace(" ", "").equals("")) {
-				return new LinkedList<SuggestionWithLabel>();
-			}
 			//Obtain the Directory of Lucene to search for
 			RAMDirectoryLucene directory = getDirectory(directoryName);
 			is = new IndexSearcher(IndexReader.open(directory.getDirectory()));
