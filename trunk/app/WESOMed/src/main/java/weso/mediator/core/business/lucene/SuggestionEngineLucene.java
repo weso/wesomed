@@ -68,6 +68,9 @@ public class SuggestionEngineLucene extends AbstractSuggestionEngine<DirectoryLu
 	public List<Suggestion> getSuggestions(String label, String directoryName) throws SuggestionException{
 		logger.info("Start searching suggestions for the label \"" + label + "\" in the directory " + directoryName);
 		IndexSearcher is = null;
+		if(label.equals("")) {
+			return new LinkedList<Suggestion>();
+		}
 		try {
 			label = filterStopWords(label);
 			//Obtain the Directory of Lucene to search for
@@ -121,6 +124,9 @@ public class SuggestionEngineLucene extends AbstractSuggestionEngine<DirectoryLu
 			String directoryName) throws SuggestionException {
 		logger.info("Start searching suggestions for the label \"" + label + "\" in the directory " + directoryName);
 		IndexSearcher is = null;
+		if(label.equals("")) {
+			return new LinkedList<SuggestionWithLabel>();
+		}
 		try {
 			label = filterStopWords(label);
 			//Obtain the Directory of Lucene to search for

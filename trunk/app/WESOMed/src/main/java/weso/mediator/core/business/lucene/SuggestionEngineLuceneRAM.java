@@ -72,6 +72,9 @@ private static Logger logger = Logger.getLogger(SuggestionEngineLuceneRAM.class)
 	public List<Suggestion> getSuggestions(String label, String directoryName)
 			throws SuggestionException {
 		logger.info("Start searching suggestions for the label \"" + label + "\" in the directory " + directoryName);
+		if(label.equals("")) {
+			return new LinkedList<Suggestion>();
+		}
 		IndexSearcher is = null;
 		try {
 			label = filterStopWords(label);
@@ -124,6 +127,9 @@ private static Logger logger = Logger.getLogger(SuggestionEngineLuceneRAM.class)
 	public List<SuggestionWithLabel> getSuggestionsWithLabel(String label,
 			String directoryName) throws SuggestionException {
 		logger.info("Start searching suggestions for the label \"" + label + "\" in the directory " + directoryName);
+		if(label.equals("")) {
+			return new LinkedList<SuggestionWithLabel>();
+		}
 		IndexSearcher is = null;
 		try {
 			label = filterStopWords(label);
