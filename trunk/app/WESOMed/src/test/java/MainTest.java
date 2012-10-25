@@ -1,23 +1,18 @@
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
-import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.lucene.document.Field.Index;
 import org.apache.lucene.document.Field.TermVector;
 import org.junit.Test;
- 
 
 import weso.mediator.config.Configuration;
 import weso.mediator.core.domain.SuggestionWithLabel;
 import weso.mediator.core.domain.lucene.IndexLucene;
-import weso.mediator.facade.WESOMed;
 import weso.mediator.facade.WESOMedLucene;
 import weso.mediator.factory.WESOMedFactory;
-import weso.mediator.util.Util;
 
 public class MainTest  {
 
@@ -30,7 +25,7 @@ public class MainTest  {
 	@Test
 	public void testJaumeBarrueto() {
 		String searchName = "Jaume Barrueto";
-		String expectedSuggestion = "VÃ­ctor Barrueto "; 
+		String expectedSuggestion = "Víctor Barrueto "; 
 
 		try {
 			WESOMedLucene facade = (WESOMedLucene) WESOMedFactory.getWESOMed();
