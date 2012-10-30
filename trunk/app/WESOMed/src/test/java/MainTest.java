@@ -25,7 +25,7 @@ public class MainTest  {
 	@Test
 	public void testJaumeBarrueto() {
 		String searchName = "Jaume Barrueto";
-		String expectedSuggestion = "Víctor Barrueto "; 
+		String expectedSuggestion = "VÃ­ctor Barrueto"; 
 
 		try {
 			WESOMedLucene facade = (WESOMedLucene) WESOMedFactory.getWESOMed();
@@ -48,7 +48,7 @@ public class MainTest  {
 					facade.getSuggestionsWithLabel(searchName, Configuration.getProperty("index_dir"));
 			
 			SuggestionWithLabel sug = suggestions.get(0);
-			assertEquals(expectedSuggestion,sug.getLabel());
+			assertEquals(expectedSuggestion,sug.getLabel().trim());
 			
 		} catch (Exception e) {
 			fail("Exception: " + e);
