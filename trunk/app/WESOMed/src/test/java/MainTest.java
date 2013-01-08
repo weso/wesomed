@@ -1,6 +1,7 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.junit.Test;
 import weso.mediator.config.Configuration;
 import weso.mediator.core.domain.SuggestionWithLabel;
 import weso.mediator.core.domain.lucene.IndexLucene;
+import weso.mediator.core.persistence.jena.JenaModelFileWrapper;
 import weso.mediator.facade.WESOMedLucene;
 import weso.mediator.factory.WESOMedFactory;
 
@@ -28,6 +30,7 @@ public class MainTest  {
 		String expectedSuggestion = "Víctor Barrueto"; 
 
 		try {
+			JenaModelFileWrapper.getInstance().loadModelFromFile(new File(Configuration.getProperty("datasource_uri")));
 			WESOMedLucene facade = (WESOMedLucene) WESOMedFactory.getWESOMed();
 			
 			// Create the indexers that are necessary 
