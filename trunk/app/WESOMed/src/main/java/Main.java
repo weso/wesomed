@@ -1,5 +1,6 @@
 
 
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.apache.lucene.document.Field.TermVector;
 import weso.mediator.config.Configuration;
 import weso.mediator.core.domain.SuggestionWithLabel;
 import weso.mediator.core.domain.lucene.IndexLucene;
+import weso.mediator.core.persistence.jena.JenaModelFileWrapper;
 import weso.mediator.facade.WESOMed;
 import weso.mediator.factory.FacadeFactory;
 
@@ -22,7 +24,7 @@ public class Main {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		try {
-			
+			JenaModelFileWrapper.getInstance().loadModelFromFile(new File(Configuration.getProperty("datasource_uri")));
 			System.setProperty("http.proxyHost", "proxy.uniovi.es");
 			System.setProperty("http.proxyPort", "8888");
 			WESOMed<IndexLucene> facade = (WESOMed<IndexLucene>) FacadeFactory.getFacade();
