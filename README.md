@@ -6,7 +6,7 @@ A semantic web based mediator developed by WESO research group. Part of this lib
 
 To build Wesomed you need a JDK 1.6 and Maven 2.2.1 installed. 
 
-## Building Wesearch
+## Building Wesomed
 
 In the Wesomed source directory type
 
