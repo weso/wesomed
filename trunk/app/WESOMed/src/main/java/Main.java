@@ -41,7 +41,7 @@ public class Main {
 			//Request the suggestions
 			List<SuggestionWithLabel> suggestions = 
 					facade.getSuggestionsWithLabel
-							("Jaume Barrueto", 
+							("Barrueto", 
 							 Configuration.getProperty("index_dir")
 							);
 			for(SuggestionWithLabel sug : suggestions) {

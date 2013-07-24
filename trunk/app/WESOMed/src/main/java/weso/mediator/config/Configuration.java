@@ -39,6 +39,8 @@ public class Configuration {
 	public static String getContentsFromProperty(String propertyName)
 	 	throws IOException {
 	    InputStream input = getLocalStream(getProperty(propertyName));
+	    if(input == null)
+	    	throw new IOException("");
 	    String contents = IOUtils.toString(input,"UTF-8");
 	    return contents;
 	} 
